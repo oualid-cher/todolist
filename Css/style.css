@@ -133,4 +133,10 @@ body {
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 1s;
+}
+
+.list-elem.checked {
+  text-decoration: line-through;
+  text-decoration-color: #ff0421;
 }
