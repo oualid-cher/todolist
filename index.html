@@ -11,7 +11,12 @@
     <div>
       <div class="head">
         <h1 class="title">TO DO LIST</h1>
-        <input type="text" placeholder="Add Your Task..." class="task-input" />
+        <input
+          oninput="makeWhite()"
+          type="text"
+          placeholder="Add Your Task..."
+          class="task-input"
+        />
         <span class="add-button" onclick="addTask()">Add</span>
       </div>
       <ul class="to-do-list">

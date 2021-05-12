@@ -51,11 +51,25 @@ function addTask() {
   let newTask = document.createElement("LI");
   let inputTaskValue = document.querySelector(".task-input").value;
   let inputText = document.createTextNode(inputTaskValue);
-  if (inputTaskValue === "") return;
+  if (inputTaskValue === "") {
+    document.querySelector(".task-input").style.backgroundColor = "#FA8072";
+    document.querySelector(".task-input").classList.add("wizz-this");
+    setTimeout(() => {
+      document.querySelector(".task-input").classList.remove("wizz-this");
+    }, 500);
+
+    return;
+  }
   newTask.appendChild(inputText);
   document.querySelector(".to-do-list").appendChild(newTask);
   newTask.classList.add("list-elem");
   addCloseButton();
   execClose();
   document.querySelector(".task-input").value = "";
+}
+
+// making input background color white
+
+function makeWhite() {
+  document.querySelector(".task-input").style.backgroundColor = "#FFFFFF";
 }
