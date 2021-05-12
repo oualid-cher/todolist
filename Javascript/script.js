@@ -18,6 +18,7 @@ addCloseButton();
 
 function execClose() {
   let close = document.querySelectorAll(".close");
+
   for (let i = 0; i < close.length; i++) {
     close[i].onclick = function () {
       let listParent = this.parentElement;
@@ -32,6 +33,7 @@ execClose();
 
 function addCheckButton() {
   let list = document.querySelector(".to-do-list");
+
   list.addEventListener(
     "click",
     function (ev) {
@@ -51,13 +53,13 @@ function addTask() {
   let newTask = document.createElement("LI");
   let inputTaskValue = document.querySelector(".task-input").value;
   let inputText = document.createTextNode(inputTaskValue);
+
   if (inputTaskValue === "") {
     document.querySelector(".task-input").style.backgroundColor = "#FA8072";
     document.querySelector(".task-input").classList.add("wizz-this");
     setTimeout(() => {
       document.querySelector(".task-input").classList.remove("wizz-this");
     }, 500);
-
     return;
   }
   newTask.appendChild(inputText);
@@ -73,3 +75,18 @@ function addTask() {
 function makeWhite() {
   document.querySelector(".task-input").style.backgroundColor = "#FFFFFF";
 }
+
+// enter button handle
+
+function enterButton() {
+  let inputField = document.querySelector(".task-input");
+
+  inputField.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.querySelector(".add-button").click();
+    }
+  });
+}
+
+enterButton();
