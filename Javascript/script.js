@@ -5,7 +5,7 @@ function addCloseButton() {
 
   for (let i = 0; i < listElements.length; i++) {
     let span = document.createElement("SPAN");
-    let CloseButton = document.createTextNode("\u00D7");
+    let CloseButton = document.createTextNode("x");
     span.className = "close";
     span.appendChild(CloseButton);
     listElements[i].appendChild(span);
@@ -35,7 +35,7 @@ function addCheckButton() {
   list.addEventListener(
     "click",
     function (ev) {
-      if (ev.target.className === "list-elem") {
+      if (ev.target.className.search("list-elem") >= 0) {
         ev.target.classList.toggle("checked");
       }
     },
@@ -44,3 +44,18 @@ function addCheckButton() {
 }
 
 addCheckButton();
+
+// add a task
+
+function addTask() {
+  let newTask = document.createElement("LI");
+  let inputTaskValue = document.querySelector(".task-input").value;
+  let inputText = document.createTextNode(inputTaskValue);
+  if (inputTaskValue === "") return;
+  newTask.appendChild(inputText);
+  document.querySelector(".to-do-list").appendChild(newTask);
+  newTask.classList.add("list-elem");
+  addCloseButton();
+  execClose();
+  document.querySelector(".task-input").value = "";
+}
