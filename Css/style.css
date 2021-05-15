@@ -99,11 +99,15 @@ body {
   position: absolute;
   right: 0px;
   width: 20px;
+  right: -20px;
   top: 0;
   height: 100%;
   padding: 5px;
   color: white;
   border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
 
   background: rgba(0, 0, 0, 0.137);
   backdrop-filter: blur(2.5px);
@@ -119,7 +123,7 @@ body {
 
 .list-elem {
   list-style-type: none;
-  border-radius: 50px;
+  border-radius: 50px 0 0 50px;
   color: rgb(191, 236, 250);
   background-color: rgba(48, 180, 16, 0.795);
   margin-top: 10px;
@@ -135,6 +139,7 @@ body {
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  line-break: anywhere;
 }
 
 .list-elem.checked {
